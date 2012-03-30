@@ -75,7 +75,7 @@ Below is a list and example of [Robert Penner's Easing Equations] (http://www.ro
 
 <br />
 
-Additionally, Chris Mckenzie contributed a list of easing equations as well:
+Additionally, [Chris Mckenzie] (http://chrismckenzie.com/) has contributed a list of easing equations:
 
 <ul>
 	<li> EaseInAtan
@@ -91,30 +91,88 @@ Within Timeline, callbacks can be trigged during certain points within your anim
 
 However, Timeline needs your callback function be in the following format:
 
-* Free Function. This means your function must not be a member of a class or struct. Below is an example of a free function
+<br />
+<br />
+
+<ul>
+ <li> 1.) Free Function. This means your function must not be a member of a class or struct. Below is an example of timeline using a free function
+</ul>
+
+<br />
+
+
 \code
 class CustomCallbackApp : public AppBasic {
   public:
 	void setup();
-
-	Circle		mCircle;
+	void memberFunction();
+	
+	Anim<Vec2f> mPos;
 };
 
 void freeFunction()
 {
 	//this is your free function, it can
 	//be any name just not a member of your class
+	
+	console() << "I'm being executed at the start of the animation" << std::endl;
+}
+
+void CustomCallbackApp::memberFunction()
+{
+  //just placed here to show the difference
 }
 
 void CustomCallbackApp::setup()
 {
-	//setup variables
+	//initialize mPos
+	mPos = Vec2f( 0.0f, 0.0f );
+
+	//start animation when program begins
+	timeline().apply( &mCircle.mPos, Vec2f( 200.0f, 200.0f ), 2.0f, EaseInOutCubic() ).startFn(  freeFunction  );
 }
+ //maybe should place draw function in here....
+
 
 \endcode
 
+<br />
 
-Below is an example of using callbacks that shows animBegin() being called when the animation starts, animUpdate() being called every time the animation has updated, and animEnd() when the animation has ended.
+<ul>
+ <li> 2.) Functors. Functors are a class with one or more private members to store the state and with an overloaded operator () to execute the function. [http://www.newty.de](http://www.newty.de/fpt/functor.html) 
+</ul>
+
+<br />
+
+\code
+class CustomCallbackApp : public AppBasic {
+  public:
+	void setup();
+	void memberFunction();
+	
+	Anim<Vec2f> mPos;
+};
+
+struct ExampleFunctor {
+	ExampleFunctor( )
+	{}
+	
+	void operator()() {
+		console() << "I'm being executed at the end of the animation" << std::endl;
+	}
+};
+
+void CustomCallbackApp::setup()
+{
+	//initialize mPos
+	mPos = Vec2f( 0.0f, 0.0f );
+
+	//start animation when program begins
+	timeline().apply( &mCircle.mPos, Vec2f( 200.0f, 200.0f ), 2.0f, EaseInOutCubic() ).finishFn(  ExampleFunctor( )  );
+}
+ //maybe should place draw function in here....
+
+\endcode
 
 ## Cues ##
 
