@@ -42,6 +42,8 @@ Using Timeline you can apply different easing equations to produce a desired eff
 
 Below is a list and example of [Robert Penner's Easing Equations] (http://www.robertpenner.com/easing/):
 
+<!-- Add visuals to how each one of these easing equations works... -->
+
 <ul>
 	<li> Linear
 	<li> EaseInQuad
@@ -174,7 +176,46 @@ void CustomCallbackApp::setup()
 
 \endcode
 
+<br />
+
+<ul>
+ <li> 3.) Lambdas. If you're using C++0x <!-- maybe discuss if this is available for vs2010 and/or xcode -->, you can use Lambda expressions. Lambda expressions essentially is a function that has a body, but does not have a name. Lambda expressions also maintain state so it can access variables that are available to the enclosing scope. [Lambda Expressions in C++ - MSDN](http://msdn.microsoft.com/en-us/library/dd293608.aspx). See below for a simple example.
+</ul>
+
+\code
+	timeline().apply( ... ).startFn( []{ app::console() << "This tween is starting."; } );
+\endcode
+
+<br />
+
 ## Cues ##
+
+Using Timeline you can set up Cue points. These can help trigger certain events at specified times throughout your animation. For example, here is a Functor example that fires in 5 seconds after the animation has started.
+
+<br />
+
+\code
+
+struct Say { // Simple functor to print stuff to the console
+  Say( std::string message ) : mMessage( message ) {}
+  void operator()(){ app::console() << mMessage << std::endl; }
+
+  std::string mMessage;
+};
+
+timeline().add( Say( "Hi!" ), timeline().getCurrentTime() + 5 );
+
+\endcode
+
+<br />
+...or if you would like to use lambdas (assuming your compiler supports it):
+<br />
+
+\code
+
+timeline().add( []{ app::console() << "Howdy"; }, timeline().getCurrentTime() + 5 );
+
+\endcode
 
 ## Looping ##
 
