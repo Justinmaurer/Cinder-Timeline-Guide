@@ -30,7 +30,7 @@ timeline().apply( &radius, 10.0f, 1.5f, EaseOutCubic() );
 
 <br />
 
-In the example above the variable *radius* is of Anim type. The value is then initialized to 0.0 as if you <!-- almost -->  you were actually using a float. On the master timeline we use the the apply function to tween the radius to a final value of 10.0 over 1.5 seconds using the EaseOutCubic function.  
+In the example above the variable *radius* is of Anim type. The value is then initialized to 0.0 as if you <!-- almost -->  were actually using a float. On the master timeline we use the the apply function to tween the radius to a final value of 10.0 over 1.5 seconds using the EaseOutCubic function.  
 
 It is important to note that the master timeline's apply function is accepting a *pointer* to the Anim radius along with the easing function used. The easing function is basically the equation that is applied to your Anim variable over time. This is described in more detail in the following section below.
 
@@ -219,9 +219,68 @@ timeline().add( []{ app::console() << "Howdy"; }, timeline().getCurrentTime() + 
 
 ## Looping ##
 
+<br />
+
+Using Timeline you can create loops on a given animation. These can be standard loops or loops based on a cue.
+
+<br />
+
 ### Standard Looping ###
 
+\code
+
+class LoopingExample : public AppBasic {
+  public:
+	void setup();
+	void mouseDown( MouseEvent event );	
+	void keyDown( KeyEvent event );
+	void draw();
+
+	Anim<Vec2f> mAnim;
+	TimelineRef mTimeline;
+};
+
+void LoopingExample::keyDown( KeyEvent event )
+{
+	console() << "key down" << std::endl;
+}
+
+void LoopingExample::setup()
+{
+	mTimeline = timeline().create();
+	mTimeline->setLoop( true );
+}
+
+void LoopingExample::mouseDown( MouseEvent event )
+{
+	mTimeline->apply( &mAnim, Vec2f( event.getPos() ), 4.50f,  EaseOutCubic() );
+}
+
+
+
+void LoopingExample::draw()
+{
+
+	// clear out the window with black
+	gl::clear( Color( 0, 0, 0 ) ); 
+
+	gl::color( Color(1.0, 0.0, 0.0) );
+	gl::drawSolidCircle( mAnim, 10 );
+
+}
+\endcode
+
+
+<br />
+
+See below for a quick example creating an animation with standard looping using Timeline:
+
 ### Looping with cues ###
+
+<br />
+
+In Timeline you can also create loops with cues. Below is an example for doing so:
+
 
 ## Advanced Usage ##
 
