@@ -40,7 +40,7 @@ jQuery.easing['jswing'] = jQuery.easing['swing'];
 
 jQuery.extend( jQuery.easing,
 {
-	def: 'easeOutQuad',
+	def: 'easeOutQuad', 
 	swing: function (x, t, b, c, d) {
 		//alert(jQuery.easing.default);
 		return jQuery.easing[jQuery.easing.def](x, t, b, c, d);
@@ -168,8 +168,81 @@ jQuery.extend( jQuery.easing,
 	easeInOutBounce: function (x, t, b, c, d) {
 		if (t < d/2) return jQuery.easing.easeInBounce (x, t*2, 0, c, d) * .5 + b;
 		return jQuery.easing.easeOutBounce (x, t*2-d, 0, c, d) * .5 + c*.5 + b;
+	},
+	easeJustin: function (x, t, b, c, d) {
+		if ((t/=d) < (1/2.75)) {
+			return c*(7.5625*t*t) + b;
+		} else if (t < (2/2.75)) {
+			return c*(7.5625*(t-=(1.5/2.75))*t + .75) + b;
+		} else if (t < (2.5/2.75)) {
+			return c*(7.5625*(t-=(2.25/2.75))*t + .9375) + b;
+		} else {
+			return c*(7.5625*(t-=(2.625/2.75))*t + .984375) + b;
+		}
 	}
 });
+
+
+/*
+	easeInOutElastic: function (x, t, b, c, d) {
+		var s=1.70158;
+		var p=0;
+		var a=c;
+		if (t==0) return b;  if ((t/=d/2)==2) return b+c;  if (!p) p=d*(.3*1.5);
+		if (a < Math.abs(c)) { a=c; var s=p/4; }
+		else var s = p/(2*Math.PI) * Math.asin (c/a);
+		if (t < 1) return -.5*(a*Math.pow(2,10*(t-=1)) * Math.sin( (t*d-s)*(2*Math.PI)/p )) + b;
+		return a*Math.pow(2,-10*(t-=1)) * Math.sin( (t*d-s)*(2*Math.PI)/p )*.5 + c + b;
+	}
+
+//! Easing equation for an elastic (exponentially decaying sine wave) ease-in/out, accelerating until halfway, then decelerating.
+inline float easeInOutElastic( float t, float amplitude, float period )
+{
+    if( t == 0 ) return 0;
+    t *= 2;
+    if( t == 2 ) return 1;
+
+    float s;
+    if( amplitude < 1 ) {
+        amplitude = 1;
+        s = period / 4;
+    }
+	else {
+        s = period / (2 * (float)M_PI) * math<float>::asin( 1 / amplitude );
+    }
+
+    if( t < 1 ) return -0.5f * ( amplitude * math<float>::pow( 2.0f, 10*(t-1) ) * math<float>::sin( (t-1-s)*(2*(float)M_PI)/period ));
+    return amplitude * math<float>::pow( 2,-10*(t-1) ) * math<float>::sin( (t-1-s)*(2*(float)M_PI)/period ) * 0.5f + 1;
+}
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Atan
+
+//! Easing equation for an atan ease-in, accelerating from zero velocity. Used by permssion from Chris McKenzie.
+inline float easeInAtan( float t, float a = 15 )
+{
+	float m = math<float>::atan( a );
+	return ( math<float>::atan( (t - 1)*a ) / m ) + 1;
+}
+
+//! Easing equation for an atan ease-out, decelerating from zero velocity. Used by permssion from Chris McKenzie.
+inline float easeOutAtan( float t, float a = 15 )
+{
+	float m = math<float>::atan( a );
+	return math<float>::atan( t*a ) / m;
+}
+
+//! Easing equation for an atan ease-in/out, accelerating until halfway, then decelerating. Used by permssion from Chris McKenzie.
+inline float easeInOutAtan( float t, float a = 15 )
+{
+	float m = math<float>::atan( 0.5f * a );
+	return ( math<float>::atan((t - 0.5f)*a) / (2*m) ) + 0.5f;
+}
+
+
+*/
+
 
 /*
  *
