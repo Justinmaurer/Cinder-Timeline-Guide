@@ -227,6 +227,12 @@ Using Timeline you can create loops on a given animation. These can be standard 
 
 ### Standard Looping ###
 
+<br />
+
+See below for a quick example creating an animation with standard looping using Timeline:
+
+<br />
+
 \code
 
 class LoopingExample : public AppBasic {
@@ -270,12 +276,24 @@ void LoopingExample::draw()
 }
 \endcode
 
+<br />
+
+### Looping with cues ###
 
 <br />
 
-See below for a quick example creating an animation with standard looping using Timeline:
+In this example the Say functor will be ran 5 seconds after the timeline begins, after that, every 1.0 second it will be ran again. See below:
 
-### Looping with cues ###
+<br />
+
+\code
+void LoopingExample::setup()
+{
+	CueRef cue = timeline().add( Say( "Hi!" ), timeline().getCurrentTime() + 5 );
+	cue->setDuration( 1.0f );
+	cue->setLoop( );
+}
+\endcode
 
 <br />
 
