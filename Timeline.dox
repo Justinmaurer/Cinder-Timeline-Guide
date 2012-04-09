@@ -219,15 +219,11 @@ timeline().add( []{ app::console() << "Howdy"; }, timeline().getCurrentTime() + 
 
 ## Looping ##
 
-<br />
-
 Using Timeline you can create loops on a given animation. These can be standard loops or loops based on a cue.
 
 <br />
 
 ### Standard Looping ###
-
-<br />
 
 See below for a quick example creating an animation with standard looping using Timeline:
 
@@ -246,11 +242,6 @@ class LoopingExample : public AppBasic {
 	TimelineRef mTimeline;
 };
 
-void LoopingExample::keyDown( KeyEvent event )
-{
-	console() << "key down" << std::endl;
-}
-
 void LoopingExample::setup()
 {
 	mTimeline = timeline().create();
@@ -261,8 +252,6 @@ void LoopingExample::mouseDown( MouseEvent event )
 {
 	mTimeline->apply( &mAnim, Vec2f( event.getPos() ), 4.50f,  EaseOutCubic() );
 }
-
-
 
 void LoopingExample::draw()
 {
@@ -280,9 +269,7 @@ void LoopingExample::draw()
 
 ### Looping with cues ###
 
-<br />
-
-In this example the Say functor will be ran 5 seconds after the timeline begins, after that, every 1.0 second it will be ran again. See below:
+In Timeline you can also create loops with cues. In this example the Say functor will be ran 5 seconds after the timeline begins, after that, every 1.0 second it will be ran again. See below:
 
 <br />
 
@@ -297,7 +284,6 @@ void LoopingExample::setup()
 
 <br />
 
-In Timeline you can also create loops with cues. Below is an example for doing so:
 
 
 ## Advanced Usage ##
