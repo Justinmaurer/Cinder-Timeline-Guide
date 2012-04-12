@@ -100,9 +100,6 @@ However, Timeline needs your callback function be in the following format:
  <li> 1.) Free Function. This means your function must not be a member of a class or struct. Below is an example of timeline using a free function
 </ul>
 
-<br />
-
-
 \code
 class CustomCallbackApp : public AppBasic {
   public:
@@ -143,8 +140,6 @@ void CustomCallbackApp::setup()
 <ul>
  <li> 2.) Functors. Functors are a class with one or more private members to store the state and with an overloaded operator () to execute the function. [http://www.newty.de](http://www.newty.de/fpt/functor.html) 
 </ul>
-
-<br />
 
 \code
 class CustomCallbackApp : public AppBasic {
@@ -192,8 +187,6 @@ void CustomCallbackApp::setup()
 
 Using Timeline you can set up Cue points. These can help trigger certain events at specified times throughout your animation. For example, here is a Functor example that fires in 5 seconds after the animation has started.
 
-<br />
-
 \code
 
 struct Say { // Simple functor to print stuff to the console
@@ -209,7 +202,6 @@ timeline().add( Say( "Hi!" ), timeline().getCurrentTime() + 5 );
 
 <br />
 ...or if you would like to use lambdas (assuming your compiler supports it):
-<br />
 
 \code
 
@@ -227,8 +219,6 @@ Using Timeline you can create loops on a given animation. These can be standard 
 
 See below for a quick example creating an animation with standard looping using Timeline:
 
-<br />
-
 \code
 
 class LoopingExample : public AppBasic {
@@ -245,6 +235,7 @@ class LoopingExample : public AppBasic {
 void LoopingExample::setup()
 {
 	mTimeline = timeline().create();
+	timeline().add( mTimeline );
 	mTimeline->setLoop( true );
 }
 
@@ -255,13 +246,11 @@ void LoopingExample::mouseDown( MouseEvent event )
 
 void LoopingExample::draw()
 {
-
 	// clear out the window with black
 	gl::clear( Color( 0, 0, 0 ) ); 
 
 	gl::color( Color(1.0, 0.0, 0.0) );
 	gl::drawSolidCircle( mAnim, 10 );
-
 }
 \endcode
 
@@ -270,8 +259,6 @@ void LoopingExample::draw()
 ### Looping with cues ###
 
 In Timeline you can also create loops with cues. In this example the Say functor will be ran 5 seconds after the timeline begins, after that, every 1.0 second it will be ran again. See below:
-
-<br />
 
 \code
 void LoopingExample::setup()
@@ -284,13 +271,131 @@ void LoopingExample::setup()
 
 <br />
 
-
-
 ## Advanced Usage ##
 
+<br />
 ### Using Step or StepTo ###
 
-### Nest Timelines ###
+You can create your own Timeline and then advance it (using step() or stepTo()) however you please. If you are a Flash person, this is how you can create a frame-based Timeline instead of a time-based one.
+<br /><br />
+
+#### Using StepTo ####
+
+You can use Timeline to "step" through a timeline that you've created. Below is an example...
+
+\code
+class LoopingExample : public AppBasic {
+  public:
+	void setup();
+	void mouseUp( MouseEvent event );	
+	void keyDown( KeyEvent event );
+	void draw();
+	void update();
+
+	Anim<Vec2f> mAnim;
+	TimelineRef mTimeline;
+	float mStepTo;
+	float mStepSize;
+};
+
+
+void LoopingExample::setup()
+{
+	mAnim = Vec2f( 10.0f , 10.0f );
+
+	mTimeline = Timeline::create();
+	mTimeline->setDefaultAutoRemove( false );
+	mTimeline->apply( &mAnim, Vec2f( 400, 400 ), 4.5f, cinder::EaseInBack() );
+
+	mStepTo = 0.0;
+	mStepSize = .03;
+
+}
+
+void LoopingExample::draw()
+{
+
+	// clear out the window with black
+	gl::clear( Color( 0, 0, 0 ) ); 
+
+	gl::color( Color(1.0, 0.0, 0.0) );
+	gl::drawSolidCircle( mAnim, 10 );
+
+}
+
+void LoopingExample::keyDown( KeyEvent event )
+{
+
+	if ( event.getCode() == event.KEY_DOWN ){
+		mStepTo -= mStepSize;
+	}
+	else if ( event.getCode() == event.KEY_UP  ){
+		mStepTo += mStepSize;
+	}
+	
+	mTimeline->stepTo( mStepTo );
+
+}
+\endcode
+
+<br />
+#### Using Step ####
+
+If you just need to specify the step size at which your timeline is updated you can use step( float stepSize  ). 
+
+\code
+	void LoopingExample::keyDown( KeyEvent event )
+	{
+
+		if ( event.getCode() == event.KEY_DOWN ){
+			mTimeline->step( -mStepSize );
+		}
+		else if ( event.getCode() == event.KEY_UP  ){
+			mTimeline->step( mStepSize );
+		}
+		
+	}
+\endcode
+
+<br />
+### Nesting Timelines ###
+
+You can nest Timelines. Create your own Timeline and add it to another Timeline. And then add that to another Timeline. Just keep in mind an Anim<> can only be a member of one Timeline at a time. If you apply() to it with a new Timeline it will deregister itself from the old one automatically.
+
+Below is a quick example of nesting timelines:
+
+\code
+
+//variable declaration and initialization
+Anim<Vec2f> mAnim1;
+Anim<Vec2f> mAnim2;
+Anim<Vec2f> mAnim3;
+
+TimelineRef mTimeline;
+TimelineRef mTimeline2;
+
+mTimeline = timeline().create();
+mTimeline2 = timeline().create();
+
+timeline().add( mTimeline );
+mTimeline->add( mTimeline2 );
+
+timeline().apply( &mAnim1, Vec2f( 100.0f, 100.0f ), 2.0f,   EaseInCubic() );
+mTimeline->apply( &mAnim2, Vec2f( 100.0f, 350.0f ), 2.5f,   EaseInBounce() );
+mTimeline2->apply( &mAnim3, Vec2f( getWindowSize() ), 3.0f, EaseInCirc() );	
+
+
+//in the draw method
+gl::color( Color( 1.0f, 0.0f, 0.0f ) );
+gl::drawSolidCircle( mAnim1, 5.0f );
+
+gl::color( Color( 1.0f, 1.0f, 0.0f ) );
+gl::drawSolidCircle( mAnim2, mAnim2().x );
+
+gl::color( Color( 0.0f, 1.0f, 0.0f ) );
+gl::drawSolidCircle( mAnim3, 20.0f );
+\endcode
+<br />
 
 ### Create Timeline Items ###
 
