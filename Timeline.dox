@@ -90,6 +90,7 @@ Linear
 
 	<script type="text/javascript">  
 	$("#easeInOutElasticButton").click(function(){
+	  $("#easeInOutElasticDiv").animate({"left": "50px"}, 0, "" );
 	  $("#easeInOutElasticDiv").animate({"left": "+=300px"}, 5000, "easeInOutElastic");
 	});
 	</script>
@@ -104,6 +105,7 @@ Linear
 
 	<script type="text/javascript">  
 	$("#easeInBounceButton").click(function(){
+	  $("#easeInBounceDiv").animate({"left": "50px"}, 0, "" );
 	  $("#easeInBounceDiv").animate({"left": "+=300px"}, 5000, "easeInBounce");
 	});
 	</script>
