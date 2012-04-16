@@ -59,28 +59,351 @@ Using Timeline you can apply different easing equations to produce a desired eff
 
 Linear
 <p> EaseInQuad
+\htmlonly
+	<br />
+	<button id="easeInQuadButton">&raquo;</button>
+	<div class="block" id="easeInQuadDiv">
+	</div>	
+
+	<script type="text/javascript">  
+	$("#easeInQuadButton").click(function(){
+	  $("#easeInQuadDiv").animate({"left": "50px"}, 0, "" );
+	  $("#easeInQuadDiv").animate({"left": "+=300px"}, 5000, "easeInQuad");
+	});
+	</script>
+	<br /><br /><br />
+\endhtmlonly
+
 <p> EaseOutQuad
+\htmlonly
+	<br />
+	<button id="easeOutQuadButton">&raquo;</button>
+	<div class="block" id="easeOutQuadDiv">
+	</div>	
+
+	<script type="text/javascript">  
+	$("#easeOutQuadButton").click(function(){
+	  $("#easeOutQuadDiv").animate({"left": "50px"}, 0, "" );
+	  $("#easeOutQuadDiv").animate({"left": "+=300px"}, 5000, "easeOutQuad");
+	});
+	</script>
+	<br /><br /><br />
+\endhtmlonly
 <p> EaseInCubic
+\htmlonly
+	<br />
+	<button id="easeInCubicButton">&raquo;</button>
+	<div class="block" id="easeInCubicDiv">
+	</div>	
+
+	<script type="text/javascript">  
+	$("#easeInCubicButton").click(function(){
+	  $("#easeInCubicDiv").animate({"left": "50px"}, 0, "" );
+	  $("#easeInCubicDiv").animate({"left": "+=300px"}, 5000, "easeInCubic");
+	});
+	</script>
+	<br /><br /><br />
+\endhtmlonly
 <p> EaseOutCubic
+\htmlonly
+	<br />
+	<button id="easeOutCubicButton">&raquo;</button>
+	<div class="block" id="easeOutCubicDiv">
+	</div>	
+
+	<script type="text/javascript">  
+	$("#easeOutCubicButton").click(function(){
+	  $("#easeOutCubicDiv").animate({"left": "50px"}, 0, "" );
+	  $("#easeOutCubicDiv").animate({"left": "+=300px"}, 5000, "easeOutCubic");
+	});
+	</script>
+	<br /><br /><br />
+\endhtmlonly	
 <p> EaseInQuart
+\htmlonly
+	<br />
+	<button id="easeInQuartButton">&raquo;</button>
+	<div class="block" id="easeInQuartDiv">
+	</div>	
+
+	<script type="text/javascript">  
+	$("#easeInQuartButton").click(function(){
+	  $("#easeInQuartDiv").animate({"left": "50px"}, 0, "" );
+	  $("#easeInQuartDiv").animate({"left": "+=300px"}, 5000, "easeInQuart");
+	});
+	</script>
+	<br /><br /><br />
+\endhtmlonly	
 <p> EaseOutQuart
+\htmlonly
+	<br />
+	<button id="easeOutQuartButton">&raquo;</button>
+	<div class="block" id="easeOutQuartDiv">
+	</div>	
+
+	<script type="text/javascript">  
+	$("#easeOutQuartButton").click(function(){
+	  $("#easeOutQuartDiv").animate({"left": "50px"}, 0, "" );
+	  $("#easeOutQuartDiv").animate({"left": "+=300px"}, 5000, "easeOutQuart");
+	});
+	</script>
+	<br /><br /><br />
+\endhtmlonly	
 <p> EaseInOutQuart
+\htmlonly
+	<br />
+	<button id="easeInOutQuartButton">&raquo;</button>
+	<div class="block" id="easeInOutQuartDiv">
+	</div>	
+
+	<script type="text/javascript">  
+	$("#easeInOutQuartButton").click(function(){
+	  $("#easeInOutQuartDiv").animate({"left": "50px"}, 0, "" );
+	  $("#easeInOutQuartDiv").animate({"left": "+=300px"}, 5000, "easeInOutQuart");
+	});
+	</script>
+	<br /><br /><br />
+\endhtmlonly
 <p> EaseInQuint
+\htmlonly
+	<br />
+	<button id="easeInQuintButton">&raquo;</button>
+	<div class="block" id="easeInQuintDiv">
+	</div>	
+
+	<script type="text/javascript">  
+	$("#easeInQuintButton").click(function(){
+	  $("#easeInQuintDiv").animate({"left": "50px"}, 0, "" );
+	  $("#easeInQuintDiv").animate({"left": "+=300px"}, 5000, "easeInQuint");
+	});
+	</script>
+	<br /><br /><br />
+\endhtmlonly
 <p> EaseOutQuint
+\htmlonly
+	<br />
+	<button id="easeOutQuintButton">&raquo;</button>
+	<div class="block" id="easeOutQuintDiv">
+	</div>	
+
+	<script type="text/javascript">  
+	$("#easeOutQuintButton").click(function(){
+	  $("#easeOutQuintDiv").animate({"left": "50px"}, 0, "" );
+	  $("#easeOutQuintDiv").animate({"left": "+=300px"}, 5000, "easeOutQuint");
+	});
+	</script>
+	<br /><br /><br />
+\endhtmlonly
 <p> EaseInOutQuint
+\htmlonly
+	<br />
+	<button id="easeInOutQuintButton">&raquo;</button>
+	<div class="block" id="easeInOutQuintDiv">
+	</div>	
+
+	<script type="text/javascript">  
+	$("#easeInOutQuintButton").click(function(){
+	  $("#easeInOutQuintDiv").animate({"left": "50px"}, 0, "" );
+	  $("#easeInOutQuintDiv").animate({"left": "+=300px"}, 5000, "easeInOutQuint");
+	});
+	</script>
+	<br /><br /><br />
+\endhtmlonly
 <p> EaseInExpo
+\htmlonly
+	<br />
+	<button id="easeInExpoButton">&raquo;</button>
+	<div class="block" id="easeInExpoDiv">
+	</div>	
+
+	<script type="text/javascript">  
+	$("#easeInExpoButton").click(function(){
+	  $("#easeInExpoDiv").animate({"left": "50px"}, 0, "" );
+	  $("#easeInExpoDiv").animate({"left": "+=300px"}, 5000, "easeInExpo");
+	});
+	</script>
+	<br /><br /><br />
+\endhtmlonly
 <p> EaseOutExpo
+\htmlonly
+	<br />
+	<button id="easeOutExpoButton">&raquo;</button>
+	<div class="block" id="easeOutExpoDiv">
+	</div>	
+
+	<script type="text/javascript">  
+	$("#easeOutExpoButton").click(function(){
+	  $("#easeOutExpoDiv").animate({"left": "50px"}, 0, "" );
+	  $("#easeOutExpoDiv").animate({"left": "+=300px"}, 5000, "easeOutExpo");
+	});
+	</script>
+	<br /><br /><br />
+\endhtmlonly
 <p> EaseInCirc
+\htmlonly
+	<br />
+	<button id="easeInCircButton">&raquo;</button>
+	<div class="block" id="easeInCircDiv">
+	</div>	
+
+	<script type="text/javascript">  
+	$("#easeInCircButton").click(function(){
+	  $("#easeInCircDiv").animate({"left": "50px"}, 0, "" );
+	  $("#easeInCircDiv").animate({"left": "+=300px"}, 5000, "easeInCirc");
+	});
+	</script>
+	<br /><br /><br />
+\endhtmlonly
 <p> EaseOutCirc
+\htmlonly
+	<br />
+	<button id="easeOutCircButton">&raquo;</button>
+	<div class="block" id="easeOutCircDiv">
+	</div>	
+
+	<script type="text/javascript">  
+	$("#easeOutCircButton").click(function(){
+	  $("#easeOutCircDiv").animate({"left": "50px"}, 0, "" );
+	  $("#easeOutCircDiv").animate({"left": "+=300px"}, 5000, "easeOutCirc");
+	});
+	</script>
+	<br /><br /><br />
+\endhtmlonly
 <p> EaseInOutCirc
+\htmlonly
+	<br />
+	<button id="easeInOutCircButton">&raquo;</button>
+	<div class="block" id="easeInOutCircDiv">
+	</div>	
+
+	<script type="text/javascript">  
+	$("#easeInOutCircButton").click(function(){
+	  $("#easeInOutCircDiv").animate({"left": "50px"}, 0, "" );
+	  $("#easeInOutCircDiv").animate({"left": "+=300px"}, 5000, "easeInOutCirc");
+	});
+	</script>
+	<br /><br /><br />
+\endhtmlonly
 <p> EaseInSine
+\htmlonly
+	<br />
+	<button id="easeInSineButton">&raquo;</button>
+	<div class="block" id="easeInSineDiv">
+	</div>	
+
+	<script type="text/javascript">  
+	$("#easeInSineButton").click(function(){
+	  $("#easeInSineDiv").animate({"left": "50px"}, 0, "" );
+	  $("#easeInSineDiv").animate({"left": "+=300px"}, 5000, "easeInSine");
+	});
+	</script>
+	<br /><br /><br />
+\endhtmlonly
 <p> EaseOutSine
+\htmlonly
+	<br />
+	<button id="easeOutSineButton">&raquo;</button>
+	<div class="block" id="easeOutSineDiv">
+	</div>	
+
+	<script type="text/javascript">  
+	$("#easeOutSineButton").click(function(){
+	  $("#easeOutSineDiv").animate({"left": "50px"}, 0, "" );
+	  $("#easeOutSineDiv").animate({"left": "+=300px"}, 5000, "easeOutSine");
+	});
+	</script>
+	<br /><br /><br />
+\endhtmlonly
 <p> EaseInOutSine
+\htmlonly
+	<br />
+	<button id="easeInOutSineButton">&raquo;</button>
+	<div class="block" id="easeInOutSineDiv">
+	</div>	
+
+	<script type="text/javascript">  
+	$("#easeInOutSineButton").click(function(){
+	  $("#easeInOutSineDiv").animate({"left": "50px"}, 0, "" );
+	  $("#easeInOutSineDiv").animate({"left": "+=300px"}, 5000, "easeInOutSine");
+	});
+	</script>
+	<br /><br /><br />
+\endhtmlonly
 <p> EaseInBack
+\htmlonly
+	<br />
+	<button id="easeInBackButton">&raquo;</button>
+	<div class="block" id="easeInBackDiv">
+	</div>	
+
+	<script type="text/javascript">  
+	$("#easeInBackButton").click(function(){
+	  $("#easeInBackDiv").animate({"left": "50px"}, 0, "" );
+	  $("#easeInBackDiv").animate({"left": "+=300px"}, 5000, "easeInBack");
+	});
+	</script>
+	<br /><br /><br />
+\endhtmlonly
 <p> EaseOutBack
+\htmlonly
+	<br />
+	<button id="easeOutBackButton">&raquo;</button>
+	<div class="block" id="easeOutBackDiv">
+	</div>	
+
+	<script type="text/javascript">  
+	$("#easeOutBackButton").click(function(){
+	  $("#easeOutBackDiv").animate({"left": "50px"}, 0, "" );
+	  $("#easeOutBackDiv").animate({"left": "+=300px"}, 5000, "easeOutBack");
+	});
+	</script>
+	<br /><br /><br />
+\endhtmlonly
 <p> EaseInOutBack
+\htmlonly
+	<br />
+	<button id="easeInOutBackButton">&raquo;</button>
+	<div class="block" id="easeInOutBackDiv">
+	</div>	
+
+	<script type="text/javascript">  
+	$("#easeInOutBackButton").click(function(){
+	  $("#easeInOutBackDiv").animate({"left": "50px"}, 0, "" );
+	  $("#easeInOutBackDiv").animate({"left": "+=300px"}, 5000, "easeInOutBack");
+	});
+	</script>
+	<br /><br /><br />
+\endhtmlonly
 <p> EaseInElastic
+\htmlonly
+	<br />
+	<button id="easeInElasticButton">&raquo;</button>
+	<div class="block" id="easeInElasticDiv">
+	</div>	
+
+	<script type="text/javascript">  
+	$("#easeInElasticButton").click(function(){
+	  $("#easeInElasticDiv").animate({"left": "50px"}, 0, "" );
+	  $("#easeInElasticDiv").animate({"left": "+=300px"}, 5000, "easeInElastic");
+	});
+	</script>
+	<br /><br /><br />
+\endhtmlonly
 <p> EaseOutElastic
+\htmlonly
+	<br />
+	<button id="easeOutElasticButton">&raquo;</button>
+	<div class="block" id="easeOutElasticDiv">
+	</div>	
+
+	<script type="text/javascript">  
+	$("#easeOutElasticButton").click(function(){
+	  $("#easeOutElasticDiv").animate({"left": "50px"}, 0, "" );
+	  $("#easeOutElasticDiv").animate({"left": "+=300px"}, 5000, "easeOutElastic");
+	});
+	</script>
+	<br /><br /><br />
+\endhtmlonly
 <p> EaseInOutElastic
 \htmlonly
 	<br />
@@ -111,10 +434,36 @@ Linear
 	</script>
 	<br /><br /><br />
 \endhtmlonly
+<p> EaseOutBounce
+\htmlonly
+	<br />
+	<button id="easeOutBounceButton">&raquo;</button>
+	<div class="block" id="easeOutBounceDiv">
+	</div>	
 
-<br /> EaseOutBounce
-<br /> EaseInOutBounce
+	<script type="text/javascript">  
+	$("#easeOutBounceButton").click(function(){
+	  $("#easeOutBounceDiv").animate({"left": "50px"}, 0, "" );
+	  $("#easeOutBounceDiv").animate({"left": "+=300px"}, 5000, "easeOutBounce");
+	});
+	</script>
+	<br /><br /><br />
+\endhtmlonly
+<p> EaseInOutBounce
+\htmlonly
+	<br />
+	<button id="easeInOutBounceButton">&raquo;</button>
+	<div class="block" id="easeInOutBounceDiv">
+	</div>	
 
+	<script type="text/javascript">  
+	$("#easeInOutBounceButton").click(function(){
+	  $("#easeInOutBounceDiv").animate({"left": "50px"}, 0, "" );
+	  $("#easeInOutBounceDiv").animate({"left": "+=300px"}, 5000, "easeInOutBounce");
+	});
+	</script>
+	<br /><br /><br />
+\endhtmlonly
 
 <br />
 
