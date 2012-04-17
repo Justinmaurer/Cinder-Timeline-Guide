@@ -13,6 +13,33 @@
 		  margin:5px;
 		}
 		
+		div.col1{
+		  position:absolute;
+		  background-color:#800000;
+		  left:50px;
+		  width:50px;
+		  height:50px;
+		  margin:5px;
+		}			
+		
+		div.col2{
+		  position:absolute;
+		  background-color:#800000;
+		  left:350;
+		  width:50px;
+		  height:50px;
+		  margin:5px;
+		}		
+
+		div.col3{
+		  position:absolute;
+		  background-color:#800000;
+		  left:610px;
+		  width:50px;
+		  height:50px;
+		  margin:5px;
+		}		
+		
 		div.Circle{
 		  position:absolute;
 		  left:50px;
@@ -94,416 +121,517 @@ It is important to note that the master timeline's apply function is accepting a
 Using Timeline you can apply different easing equations to produce a desired effect to your anims.
 
 Linear
-<p> EaseInQuad
+
+
 \htmlonly
-	<br />
-	<button id="easeInQuadButton">&raquo;</button> 
-	<button id="easeInQuadResetButton">reset</button>
-	<div class="block" id="easeInQuadDiv">
-	</div>	
+<script type="text/javascript"> 
+
+	var easeAmt = "+=200";
+	var easeTime = 2500;
+	var col1Pos = "50px";
+	var col2Pos = "350px";
+	var col3Pos = "610px";
+
+	function easeAll(){
+		$("#easeInQuadDiv").animate({"left": col1Pos}, 0, "" );
+		$("#easeInQuadDiv").animate({"left": easeAmt}, easeTime, "easeInQuad");
+		$("#easeOutQuadDiv").animate({"left": col2Pos}, 0, "" );
+		$("#easeOutQuadDiv").animate({"left": easeAmt}, easeTime, "easeOutQuad");
+		$("#easeInCubicDiv").animate({"left": col3Pos}, 0, "" );
+		$("#easeInCubicDiv").animate({"left": easeAmt}, easeTime, "easeInCubic");
+		$("#easeOutCubicDiv").animate({"left": col1Pos}, 0, "" );
+		$("#easeOutCubicDiv").animate({"left": easeAmt}, easeTime, "easeOutCubic");
+		$("#easeInQuartDiv").animate({"left": col2Pos}, 0, "" );
+		$("#easeInQuartDiv").animate({"left": easeAmt}, easeTime, "easeInQuart");
+		$("#easeOutQuartDiv").animate({"left": col3Pos}, 0, "" );
+		$("#easeOutQuartDiv").animate({"left": easeAmt}, easeTime, "easeOutQuart");
+		$("#easeInOutQuartDiv").animate({"left": col1Pos}, 0, "" );
+		$("#easeInOutQuartDiv").animate({"left": easeAmt}, easeTime, "easeInOutQuart");
+		$("#easeInQuintDiv").animate({"left": col2Pos}, 0, "" );
+		$("#easeInQuintDiv").animate({"left": easeAmt}, easeTime, "easeInQuint");
+		$("#easeOutQuintDiv").animate({"left": col3Pos}, 0, "" );
+		$("#easeOutQuintDiv").animate({"left": easeAmt}, easeTime, "easeOutQuint");
+		$("#easeInOutQuintDiv").animate({"left": col1Pos}, 0, "" );
+		$("#easeInOutQuintDiv").animate({"left": easeAmt}, easeTime, "easeInOutQuint");
+		$("#easeInExpoDiv").animate({"left": col2Pos}, 0, "" );
+		$("#easeInExpoDiv").animate({"left": easeAmt}, easeTime, "easeInExpo");
+		$("#easeOutExpoDiv").animate({"left": col3Pos}, 0, "" );
+		$("#easeOutExpoDiv").animate({"left": easeAmt}, easeTime, "easeOutExpo");
+		$("#easeInCircDiv").animate({"left": col1Pos}, 0, "" );
+		$("#easeInCircDiv").animate({"left": easeAmt}, easeTime, "easeInCirc");
+		$("#easeOutCircDiv").animate({"left": col2Pos}, 0, "" );
+		$("#easeOutCircDiv").animate({"left": easeAmt}, easeTime, "easeOutCirc");
+		$("#easeInOutCircDiv").animate({"left": col3Pos}, 0, "" );
+		$("#easeInOutCircDiv").animate({"left": easeAmt}, easeTime, "easeInOutCirc");
+		$("#easeInSineDiv").animate({"left": col1Pos}, 0, "" );
+		$("#easeInSineDiv").animate({"left": easeAmt}, easeTime, "easeInSine");
+		$("#easeOutSineDiv").animate({"left": col2Pos}, 0, "" );
+		$("#easeOutSineDiv").animate({"left": easeAmt}, easeTime, "easeOutSine");
+		$("#easeInOutSineDiv").animate({"left": col3Pos}, 0, "" );
+		$("#easeInOutSineDiv").animate({"left": easeAmt}, easeTime, "easeInOutSine");
+		$("#easeInBackDiv").animate({"left": col1Pos}, 0, "" );
+		$("#easeInBackDiv").animate({"left": easeAmt}, easeTime, "easeInBack");
+		$("#easeOutBackDiv").animate({"left": col2Pos}, 0, "" );
+		$("#easeOutBackDiv").animate({"left": easeAmt}, easeTime, "easeOutBack");
+		$("#easeInOutBackDiv").animate({"left": col3Pos}, 0, "" );
+		$("#easeInOutBackDiv").animate({"left": easeAmt}, easeTime, "easeInOutBack");
+		$("#easeInElasticDiv").animate({"left": col1Pos}, 0, "" );
+		$("#easeInElasticDiv").animate({"left": easeAmt}, easeTime, "easeInElastic");
+		$("#easeOutElasticDiv").animate({"left": col2Pos}, 0, "" );
+		$("#easeOutElasticDiv").animate({"left": easeAmt}, easeTime, "easeOutElastic");
+		$("#easeInOutElasticDiv").animate({"left": col3Pos}, 0, "" );
+		$("#easeInOutElasticDiv").animate({"left": easeAmt}, easeTime, "easeInOutElastic");
+		$("#easeInBounceDiv").animate({"left": col1Pos}, 0, "" );
+		$("#easeInBounceDiv").animate({"left": easeAmt}, easeTime, "easeInBounce");
+		$("#easeOutBounceDiv").animate({"left": col2Pos}, 0, "" );
+		$("#easeOutBounceDiv").animate({"left": easeAmt}, easeTime, "easeOutBounce");
+		$("#easeInOutBounceDiv").animate({"left": col3Pos}, 0, "" );
+		$("#easeInOutBounceDiv").animate({"left": easeAmt}, easeTime, "easeInOutBounce");
+	}
 	
-	<script type="text/javascript">  
-	$("#easeInQuadButton").click(function(){
-	  $("#easeInQuadDiv").animate({"left": "50px"}, 0, "" );
-	  $("#easeInQuadDiv").animate({"left": "+=300px"}, 5000, "easeInQuad");
-	});
 	
-	$("#easeInQuadResetButton").click(function(){
-	 $("#easeInQuadDiv").animate({"left": "50px"}, 0, "" );
+</script>
+<button id="easeAllButton">Ease All</button> 
+<script type="text/javascript">  
+	$("#easeAllButton").click(function(){
+		easeAll();
 	});
-	</script>
-	<br /><br /><br />
-\endhtmlonly
+</script>
 
-<p> EaseOutQuad
-\htmlonly
-	<br />
-	<button id="easeOutQuadButton">&raquo;</button>
-	<div class="block" id="easeOutQuadDiv">
-	</div>	
+<table width="900" height="1000" border="1">
+	<tr>
+		<td> EaseInQuad
 
-	<script type="text/javascript">  
-	$("#easeOutQuadButton").click(function(){
-	  $("#easeOutQuadDiv").animate({"left": "50px"}, 0, "" );
-	  $("#easeOutQuadDiv").animate({"left": "+=300px"}, 5000, "easeOutQuad");
-	});
-	</script>
-	<br /><br /><br />
-\endhtmlonly
-<p> EaseInCubic
-\htmlonly
-	<br />
-	<button id="easeInCubicButton">&raquo;</button>
-	<div class="block" id="easeInCubicDiv">
-	</div>	
+			<br />
+			<button id="easeInQuadButton">&raquo;</button> 
+			<div class="col1" id="easeInQuadDiv">
+			</div>	
+			
+			<script type="text/javascript">  				
+			$("#easeInQuadButton").click(function(){
+			  $("#easeInQuadDiv").animate({"left": col1Pos}, 0, "" );
+			  $("#easeInQuadDiv").animate({"left": easeAmt}, easeTime, "easeInQuad");
+			});
+			
+			$("#easeInQuadResetButton").click(function(){
+			 $("#easeInQuadDiv").animate({"left": col1Pos}, 0, "" );
+			});
+			</script>
+			<br /><br /><br />
+		</td>
+		<td> EaseOutQuad
 
-	<script type="text/javascript">  
-	$("#easeInCubicButton").click(function(){
-	  $("#easeInCubicDiv").animate({"left": "50px"}, 0, "" );
-	  $("#easeInCubicDiv").animate({"left": "+=300px"}, 5000, "easeInCubic");
-	});
-	</script>
-	<br /><br /><br />
-\endhtmlonly
-<p> EaseOutCubic
-\htmlonly
-	<br />
-	<button id="easeOutCubicButton">&raquo;</button>
-	<div class="block" id="easeOutCubicDiv">
-	</div>	
+			<br />
+			<button id="easeOutQuadButton">&raquo;</button>
+			<div class="col2" id="easeOutQuadDiv">
+			</div>	
 
-	<script type="text/javascript">  
-	$("#easeOutCubicButton").click(function(){
-	  $("#easeOutCubicDiv").animate({"left": "50px"}, 0, "" );
-	  $("#easeOutCubicDiv").animate({"left": "+=300px"}, 5000, "easeOutCubic");
-	});
-	</script>
-	<br /><br /><br />
-\endhtmlonly	
-<p> EaseInQuart
-\htmlonly
-	<br />
-	<button id="easeInQuartButton">&raquo;</button>
-	<div class="block" id="easeInQuartDiv">
-	</div>	
+			<script type="text/javascript">  
+			$("#easeOutQuadButton").click(function(){
+			  $("#easeOutQuadDiv").animate({"left": col2Pos}, 0, "" );
+			  $("#easeOutQuadDiv").animate({"left": easeAmt}, easeTime, "easeOutQuad");
+			});
+			</script>
+			<br /><br /><br />
+		</td>
+		<td > EaseInCubic
 
-	<script type="text/javascript">  
-	$("#easeInQuartButton").click(function(){
-	  $("#easeInQuartDiv").animate({"left": "50px"}, 0, "" );
-	  $("#easeInQuartDiv").animate({"left": "+=300px"}, 5000, "easeInQuart");
-	});
-	</script>
-	<br /><br /><br />
-\endhtmlonly	
-<p> EaseOutQuart
-\htmlonly
-	<br />
-	<button id="easeOutQuartButton">&raquo;</button>
-	<div class="block" id="easeOutQuartDiv">
-	</div>	
+			<br />
+			<button id="easeInCubicButton">&raquo;</button>
+			<div class="col3" id="easeInCubicDiv">
+			</div>	
 
-	<script type="text/javascript">  
-	$("#easeOutQuartButton").click(function(){
-	  $("#easeOutQuartDiv").animate({"left": "50px"}, 0, "" );
-	  $("#easeOutQuartDiv").animate({"left": "+=300px"}, 5000, "easeOutQuart");
-	});
-	</script>
-	<br /><br /><br />
-\endhtmlonly	
-<p> EaseInOutQuart
-\htmlonly
-	<br />
-	<button id="easeInOutQuartButton">&raquo;</button>
-	<div class="block" id="easeInOutQuartDiv">
-	</div>	
+			<script type="text/javascript">  
+			$("#easeInCubicButton").click(function(){
+			  $("#easeInCubicDiv").animate({"left": col3Pos}, 0, "" );
+			  $("#easeInCubicDiv").animate({"left": easeAmt}, easeTime, "easeInCubic");
+			});
+			</script>
+			<br /><br /><br />
+		</td>	
+	</tr>
+	<tr>
+	<td> EaseOutCubic
 
-	<script type="text/javascript">  
-	$("#easeInOutQuartButton").click(function(){
-	  $("#easeInOutQuartDiv").animate({"left": "50px"}, 0, "" );
-	  $("#easeInOutQuartDiv").animate({"left": "+=300px"}, 5000, "easeInOutQuart");
-	});
-	</script>
-	<br /><br /><br />
-\endhtmlonly
-<p> EaseInQuint
-\htmlonly
-	<br />
-	<button id="easeInQuintButton">&raquo;</button>
-	<div class="block" id="easeInQuintDiv">
-	</div>	
+		<br />
+		<button id="easeOutCubicButton">&raquo;</button>
+		<div class="col1" id="easeOutCubicDiv">
+		</div>	
 
-	<script type="text/javascript">  
-	$("#easeInQuintButton").click(function(){
-	  $("#easeInQuintDiv").animate({"left": "50px"}, 0, "" );
-	  $("#easeInQuintDiv").animate({"left": "+=300px"}, 5000, "easeInQuint");
-	});
-	</script>
-	<br /><br /><br />
-\endhtmlonly
-<p> EaseOutQuint
-\htmlonly
-	<br />
-	<button id="easeOutQuintButton">&raquo;</button>
-	<div class="block" id="easeOutQuintDiv">
-	</div>	
+		<script type="text/javascript">  
+		$("#easeOutCubicButton").click(function(){
+		  $("#easeOutCubicDiv").animate({"left": col1Pos}, 0, "" );
+		  $("#easeOutCubicDiv").animate({"left": easeAmt}, easeTime, "easeOutCubic");
+		});
+		</script>
+		<br /><br /><br />
+	</td>	
+	<td> EaseInQuart
 
-	<script type="text/javascript">  
-	$("#easeOutQuintButton").click(function(){
-	  $("#easeOutQuintDiv").animate({"left": "50px"}, 0, "" );
-	  $("#easeOutQuintDiv").animate({"left": "+=300px"}, 5000, "easeOutQuint");
-	});
-	</script>
-	<br /><br /><br />
-\endhtmlonly
-<p> EaseInOutQuint
-\htmlonly
-	<br />
-	<button id="easeInOutQuintButton">&raquo;</button>
-	<div class="block" id="easeInOutQuintDiv">
-	</div>	
+		<br />
+		<button id="easeInQuartButton">&raquo;</button>
+		<div class="col2" id="easeInQuartDiv">
+		</div>	
 
-	<script type="text/javascript">  
-	$("#easeInOutQuintButton").click(function(){
-	  $("#easeInOutQuintDiv").animate({"left": "50px"}, 0, "" );
-	  $("#easeInOutQuintDiv").animate({"left": "+=300px"}, 5000, "easeInOutQuint");
-	});
-	</script>
-	<br /><br /><br />
-\endhtmlonly
-<p> EaseInExpo
-\htmlonly
-	<br />
-	<button id="easeInExpoButton">&raquo;</button>
-	<div class="block" id="easeInExpoDiv">
-	</div>	
+		<script type="text/javascript">  
+		$("#easeInQuartButton").click(function(){
+		  $("#easeInQuartDiv").animate({"left": col2Pos}, 0, "" );
+		  $("#easeInQuartDiv").animate({"left": easeAmt}, easeTime, "easeInQuart");
+		});
+		</script>
+		<br /><br /><br />
+	</td>	
+	<td> EaseOutQuart
 
-	<script type="text/javascript">  
-	$("#easeInExpoButton").click(function(){
-	  $("#easeInExpoDiv").animate({"left": "50px"}, 0, "" );
-	  $("#easeInExpoDiv").animate({"left": "+=300px"}, 5000, "easeInExpo");
-	});
-	</script>
-	<br /><br /><br />
-\endhtmlonly
-<p> EaseOutExpo
-\htmlonly
-	<br />
-	<button id="easeOutExpoButton">&raquo;</button>
-	<div class="block" id="easeOutExpoDiv">
-	</div>	
+		<br />
+		<button id="easeOutQuartButton">&raquo;</button>
+		<div class="col3" id="easeOutQuartDiv">
+		</div>	
 
-	<script type="text/javascript">  
-	$("#easeOutExpoButton").click(function(){
-	  $("#easeOutExpoDiv").animate({"left": "50px"}, 0, "" );
-	  $("#easeOutExpoDiv").animate({"left": "+=300px"}, 5000, "easeOutExpo");
-	});
-	</script>
-	<br /><br /><br />
-\endhtmlonly
-<p> EaseInCirc
-\htmlonly
-	<br />
-	<button id="easeInCircButton">&raquo;</button>
-	<div class="block" id="easeInCircDiv">
-	</div>	
+		<script type="text/javascript">  
+		$("#easeOutQuartButton").click(function(){
+		  $("#easeOutQuartDiv").animate({"left": col3Pos}, 0, "" );
+		  $("#easeOutQuartDiv").animate({"left": easeAmt}, easeTime, "easeOutQuart");
+		});
+		</script>
+		<br /><br /><br />
+	  </td>	
+	</tr>
+	<tr>	
+	<td> EaseInOutQuart
 
-	<script type="text/javascript">  
-	$("#easeInCircButton").click(function(){
-	  $("#easeInCircDiv").animate({"left": "50px"}, 0, "" );
-	  $("#easeInCircDiv").animate({"left": "+=300px"}, 5000, "easeInCirc");
-	});
-	</script>
-	<br /><br /><br />
-\endhtmlonly
-<p> EaseOutCirc
-\htmlonly
-	<br />
-	<button id="easeOutCircButton">&raquo;</button>
-	<div class="block" id="easeOutCircDiv">
-	</div>	
+		<br />
+		<button id="easeInOutQuartButton">&raquo;</button>
+		<div class="col1" id="easeInOutQuartDiv">
+		</div>	
 
-	<script type="text/javascript">  
-	$("#easeOutCircButton").click(function(){
-	  $("#easeOutCircDiv").animate({"left": "50px"}, 0, "" );
-	  $("#easeOutCircDiv").animate({"left": "+=300px"}, 5000, "easeOutCirc");
-	});
-	</script>
-	<br /><br /><br />
-\endhtmlonly
-<p> EaseInOutCirc
-\htmlonly
-	<br />
-	<button id="easeInOutCircButton">&raquo;</button>
-	<div class="block" id="easeInOutCircDiv">
-	</div>	
+		<script type="text/javascript">  
+		$("#easeInOutQuartButton").click(function(){
+		  $("#easeInOutQuartDiv").animate({"left": col1Pos}, 0, "" );
+		  $("#easeInOutQuartDiv").animate({"left": easeAmt}, easeTime, "easeInOutQuart");
+		});
+		</script>
+		<br /><br /><br />
+	</td>
+	<td> EaseInQuint
 
-	<script type="text/javascript">  
-	$("#easeInOutCircButton").click(function(){
-	  $("#easeInOutCircDiv").animate({"left": "50px"}, 0, "" );
-	  $("#easeInOutCircDiv").animate({"left": "+=300px"}, 5000, "easeInOutCirc");
-	});
-	</script>
-	<br /><br /><br />
-\endhtmlonly
-<p> EaseInSine
-\htmlonly
-	<br />
-	<button id="easeInSineButton">&raquo;</button>
-	<div class="block" id="easeInSineDiv">
-	</div>	
+		<br />
+		<button id="easeInQuintButton">&raquo;</button>
+		<div class="col2" id="easeInQuintDiv">
+		</div>	
 
-	<script type="text/javascript">  
-	$("#easeInSineButton").click(function(){
-	  $("#easeInSineDiv").animate({"left": "50px"}, 0, "" );
-	  $("#easeInSineDiv").animate({"left": "+=300px"}, 5000, "easeInSine");
-	});
-	</script>
-	<br /><br /><br />
-\endhtmlonly
-<p> EaseOutSine
-\htmlonly
-	<br />
-	<button id="easeOutSineButton">&raquo;</button>
-	<div class="block" id="easeOutSineDiv">
-	</div>	
+		<script type="text/javascript">  
+		$("#easeInQuintButton").click(function(){
+		  $("#easeInQuintDiv").animate({"left": col2Pos}, 0, "" );
+		  $("#easeInQuintDiv").animate({"left": easeAmt}, easeTime, "easeInQuint");
+		});
+		</script>
+		<br /><br /><br />
+	</td>
+	<td> EaseOutQuint
 
-	<script type="text/javascript">  
-	$("#easeOutSineButton").click(function(){
-	  $("#easeOutSineDiv").animate({"left": "50px"}, 0, "" );
-	  $("#easeOutSineDiv").animate({"left": "+=300px"}, 5000, "easeOutSine");
-	});
-	</script>
-	<br /><br /><br />
-\endhtmlonly
-<p> EaseInOutSine
-\htmlonly
-	<br />
-	<button id="easeInOutSineButton">&raquo;</button>
-	<div class="block" id="easeInOutSineDiv">
-	</div>	
+		<br />
+		<button id="easeOutQuintButton">&raquo;</button>
+		<div class="col3" id="easeOutQuintDiv">
+		</div>	
 
-	<script type="text/javascript">  
-	$("#easeInOutSineButton").click(function(){
-	  $("#easeInOutSineDiv").animate({"left": "50px"}, 0, "" );
-	  $("#easeInOutSineDiv").animate({"left": "+=300px"}, 5000, "easeInOutSine");
-	});
-	</script>
-	<br /><br /><br />
-\endhtmlonly
-<p> EaseInBack
-\htmlonly
-	<br />
-	<button id="easeInBackButton">&raquo;</button>
-	<div class="block" id="easeInBackDiv">
-	</div>	
+		<script type="text/javascript">  
+		$("#easeOutQuintButton").click(function(){
+		  $("#easeOutQuintDiv").animate({"left": col3Pos}, 0, "" );
+		  $("#easeOutQuintDiv").animate({"left": easeAmt}, easeTime, "easeOutQuint");
+		});
+		</script>
+		<br /><br /><br />
+	</td>
+	</tr>
+	<tr>
+	<td> EaseInOutQuint
 
-	<script type="text/javascript">  
-	$("#easeInBackButton").click(function(){
-	  $("#easeInBackDiv").animate({"left": "50px"}, 0, "" );
-	  $("#easeInBackDiv").animate({"left": "+=300px"}, 5000, "easeInBack");
-	});
-	</script>
-	<br /><br /><br />
-\endhtmlonly
-<p> EaseOutBack
-\htmlonly
-	<br />
-	<button id="easeOutBackButton">&raquo;</button>
-	<div class="block" id="easeOutBackDiv">
-	</div>	
+		<br />
+		<button id="easeInOutQuintButton">&raquo;</button>
+		<div class="col1" id="easeInOutQuintDiv">
+		</div>	
 
-	<script type="text/javascript">  
-	$("#easeOutBackButton").click(function(){
-	  $("#easeOutBackDiv").animate({"left": "50px"}, 0, "" );
-	  $("#easeOutBackDiv").animate({"left": "+=300px"}, 5000, "easeOutBack");
-	});
-	</script>
-	<br /><br /><br />
-\endhtmlonly
-<p> EaseInOutBack
-\htmlonly
-	<br />
-	<button id="easeInOutBackButton">&raquo;</button>
-	<div class="block" id="easeInOutBackDiv">
-	</div>	
+		<script type="text/javascript">  
+		$("#easeInOutQuintButton").click(function(){
+		  $("#easeInOutQuintDiv").animate({"left": col1Pos}, 0, "" );
+		  $("#easeInOutQuintDiv").animate({"left": easeAmt}, easeTime, "easeInOutQuint");
+		});
+		</script>
+		<br /><br /><br />
+	</td>
+	<td> EaseInExpo
 
-	<script type="text/javascript">  
-	$("#easeInOutBackButton").click(function(){
-	  $("#easeInOutBackDiv").animate({"left": "50px"}, 0, "" );
-	  $("#easeInOutBackDiv").animate({"left": "+=300px"}, 5000, "easeInOutBack");
-	});
-	</script>
-	<br /><br /><br />
-\endhtmlonly
-<p> EaseInElastic
-\htmlonly
-	<br />
-	<button id="easeInElasticButton">&raquo;</button>
-	<div class="block" id="easeInElasticDiv">
-	</div>	
+		<br />
+		<button id="easeInExpoButton">&raquo;</button>
+		<div class="col2" id="easeInExpoDiv">
+		</div>	
 
-	<script type="text/javascript">  
-	$("#easeInElasticButton").click(function(){
-	  $("#easeInElasticDiv").animate({"left": "50px"}, 0, "" );
-	  $("#easeInElasticDiv").animate({"left": "+=300px"}, 5000, "easeInElastic");
-	});
-	</script>
-	<br /><br /><br />
-\endhtmlonly
-<p> EaseOutElastic
-\htmlonly
-	<br />
-	<button id="easeOutElasticButton">&raquo;</button>
-	<div class="block" id="easeOutElasticDiv">
-	</div>	
+		<script type="text/javascript">  
+		$("#easeInExpoButton").click(function(){
+		  $("#easeInExpoDiv").animate({"left": col2Pos}, 0, "" );
+		  $("#easeInExpoDiv").animate({"left": easeAmt}, easeTime, "easeInExpo");
+		});
+		</script>
+		<br /><br /><br />
+	</td>
+	<td> EaseOutExpo
 
-	<script type="text/javascript">  
-	$("#easeOutElasticButton").click(function(){
-	  $("#easeOutElasticDiv").animate({"left": "50px"}, 0, "" );
-	  $("#easeOutElasticDiv").animate({"left": "+=300px"}, 5000, "easeOutElastic");
-	});
-	</script>
-	<br /><br /><br />
-\endhtmlonly
-<p> EaseInOutElastic
-\htmlonly
-	<br />
-	<button id="easeInOutElasticButton">&raquo;</button>
-	<div class="block" id="easeInOutElasticDiv">
-	</div>	
+		<br />
+		<button id="easeOutExpoButton">&raquo;</button>
+		<div class="col3" id="easeOutExpoDiv">
+		</div>	
 
-	<script type="text/javascript">  
-	$("#easeInOutElasticButton").click(function(){
-	  $("#easeInOutElasticDiv").animate({"left": "50px"}, 0, "" );
-	  $("#easeInOutElasticDiv").animate({"left": "+=300px"}, 5000, "easeInOutElastic");
-	});
-	</script>
-	<br /><br /><br />
-\endhtmlonly
-<p> EaseInBounce
-\htmlonly
-	<br />
-	<button id="easeInBounceButton">&raquo;</button>
-	<div class="block" id="easeInBounceDiv">
-	</div>	
+		<script type="text/javascript">  
+		$("#easeOutExpoButton").click(function(){
+		  $("#easeOutExpoDiv").animate({"left": col3Pos}, 0, "" );
+		  $("#easeOutExpoDiv").animate({"left": easeAmt}, easeTime, "easeOutExpo");
+		});
+		</script>
+		<br /><br /><br />
+	</td>
+	</tr>
+	<tr>
+	<td> EaseInCirc
 
-	<script type="text/javascript">  
-	$("#easeInBounceButton").click(function(){
-	  $("#easeInBounceDiv").animate({"left": "50px"}, 0, "" );
-	  $("#easeInBounceDiv").animate({"left": "+=300px"}, 5000, "easeInBounce");
-	});
-	</script>
-	<br /><br /><br />
-\endhtmlonly
-<p> EaseOutBounce
-\htmlonly
-	<br />
-	<button id="easeOutBounceButton">&raquo;</button>
-	<div class="block" id="easeOutBounceDiv">
-	</div>	
+		<br />
+		<button id="easeInCircButton">&raquo;</button>
+		<div class="col1" id="easeInCircDiv">
+		</div>	
 
-	<script type="text/javascript">  
-	$("#easeOutBounceButton").click(function(){
-	  $("#easeOutBounceDiv").animate({"left": "50px"}, 0, "" );
-	  $("#easeOutBounceDiv").animate({"left": "+=300px"}, 5000, "easeOutBounce");
-	});
-	</script>
-	<br /><br /><br />
-\endhtmlonly
-<p> EaseInOutBounce
-\htmlonly
-	<br />
-	<button id="easeInOutBounceButton">&raquo;</button>
-	<div class="block" id="easeInOutBounceDiv">
-	</div>	
+		<script type="text/javascript">  
+		$("#easeInCircButton").click(function(){
+		  $("#easeInCircDiv").animate({"left": col1Pos}, 0, "" );
+		  $("#easeInCircDiv").animate({"left": easeAmt}, easeTime, "easeInCirc");
+		});
+		</script>
+		<br /><br /><br />
+	</td>
+	<td> EaseOutCirc
 
-	<script type="text/javascript">  
-	$("#easeInOutBounceButton").click(function(){
-	  $("#easeInOutBounceDiv").animate({"left": "50px"}, 0, "" );
-	  $("#easeInOutBounceDiv").animate({"left": "+=300px"}, 5000, "easeInOutBounce");
-	});
-	</script>
-	<br /><br /><br />
+		<br />
+		<button id="easeOutCircButton">&raquo;</button>
+		<div class="col2" id="easeOutCircDiv">
+		</div>	
+
+		<script type="text/javascript">  
+		$("#easeOutCircButton").click(function(){
+		  $("#easeOutCircDiv").animate({"left": col2Pos}, 0, "" );
+		  $("#easeOutCircDiv").animate({"left": easeAmt}, easeTime, "easeOutCirc");
+		});
+		</script>
+		<br /><br /><br />
+	</td>
+	<td> EaseInOutCirc
+
+		<br />
+		<button id="easeInOutCircButton">&raquo;</button>
+		<div class="col3" id="easeInOutCircDiv">
+		</div>	
+
+		<script type="text/javascript">  
+		$("#easeInOutCircButton").click(function(){
+		  $("#easeInOutCircDiv").animate({"left": col3Pos}, 0, "" );
+		  $("#easeInOutCircDiv").animate({"left": easeAmt}, easeTime, "easeInOutCirc");
+		});
+		</script>
+		<br /><br /><br />
+	</td>
+	</tr>
+	
+	<tr>
+	<td> EaseInSine
+
+		<br />
+		<button id="easeInSineButton">&raquo;</button>
+		<div class="col1" id="easeInSineDiv">
+		</div>	
+
+		<script type="text/javascript">  
+		$("#easeInSineButton").click(function(){
+		  $("#easeInSineDiv").animate({"left": col1Pos}, 0, "" );
+		  $("#easeInSineDiv").animate({"left": easeAmt}, easeTime, "easeInSine");
+		});
+		</script>
+		<br /><br /><br />
+	</td>
+	<td> EaseOutSine
+
+		<br />
+		<button id="easeOutSineButton">&raquo;</button>
+		<div class="col2" id="easeOutSineDiv">
+		</div>	
+
+		<script type="text/javascript">  
+		$("#easeOutSineButton").click(function(){
+		  $("#easeOutSineDiv").animate({"left": col2Pos}, 0, "" );
+		  $("#easeOutSineDiv").animate({"left": easeAmt}, easeTime, "easeOutSine");
+		});
+		</script>
+		<br /><br /><br />
+	</td>
+	<td> EaseInOutSine
+
+		<br />
+		<button id="easeInOutSineButton">&raquo;</button>
+		<div class="col3" id="easeInOutSineDiv">
+		</div>	
+
+		<script type="text/javascript">  
+		$("#easeInOutSineButton").click(function(){
+		  $("#easeInOutSineDiv").animate({"left": col3Pos}, 0, "" );
+		  $("#easeInOutSineDiv").animate({"left": easeAmt}, easeTime, "easeInOutSine");
+		});
+		</script>
+		<br /><br /><br />
+	</td>		
+	</tr>
+	
+	<tr>
+	<td> EaseInBack
+
+		<br />
+		<button id="easeInBackButton">&raquo;</button>
+		<div class="col1" id="easeInBackDiv">
+		</div>	
+
+		<script type="text/javascript">  
+		$("#easeInBackButton").click(function(){
+		  $("#easeInBackDiv").animate({"left": col1Pos}, 0, "" );
+		  $("#easeInBackDiv").animate({"left": easeAmt}, easeTime, "easeInBack");
+		});
+		</script>
+		<br /><br /><br />
+	</td>
+	<td> EaseOutBack
+
+		<br />
+		<button id="easeOutBackButton">&raquo;</button>
+		<div class="col2" id="easeOutBackDiv">
+		</div>	
+
+		<script type="text/javascript">  
+		$("#easeOutBackButton").click(function(){
+		  $("#easeOutBackDiv").animate({"left": col2Pos}, 0, "" );
+		  $("#easeOutBackDiv").animate({"left": easeAmt}, easeTime, "easeOutBack");
+		});
+		</script>
+		<br /><br /><br />
+	</td>
+	<td> EaseInOutBack
+
+		<br />
+		<button id="easeInOutBackButton">&raquo;</button>
+		<div class="col3" id="easeInOutBackDiv">
+		</div>	
+
+		<script type="text/javascript">  
+		$("#easeInOutBackButton").click(function(){
+		  $("#easeInOutBackDiv").animate({"left": col3Pos}, 0, "" );
+		  $("#easeInOutBackDiv").animate({"left": easeAmt}, easeTime, "easeInOutBack");
+		});
+		</script>
+		<br /><br /><br />
+	</td>		
+	</tr>
+	
+	<tr>	
+	<td> EaseInElastic
+
+		<br />
+		<button id="easeInElasticButton">&raquo;</button>
+		<div class="col1" id="easeInElasticDiv">
+		</div>	
+
+		<script type="text/javascript">  
+		$("#easeInElasticButton").click(function(){
+		  $("#easeInElasticDiv").animate({"left": col1Pos}, 0, "" );
+		  $("#easeInElasticDiv").animate({"left": easeAmt}, easeTime, "easeInElastic");
+		});
+		</script>
+		<br /><br /><br />
+	</td>
+	<td> EaseOutElastic
+
+		<br />
+		<button id="easeOutElasticButton">&raquo;</button>
+		<div class="col2" id="easeOutElasticDiv">
+		</div>	
+
+		<script type="text/javascript">  
+		$("#easeOutElasticButton").click(function(){
+		  $("#easeOutElasticDiv").animate({"left": col2Pos}, 0, "" );
+		  $("#easeOutElasticDiv").animate({"left": easeAmt}, easeTime, "easeOutElastic");
+		});
+		</script>
+		<br /><br /><br />
+	</td>
+	<td> EaseInOutElastic
+
+		<br />
+		<button id="easeInOutElasticButton">&raquo;</button>
+		<div class="col3" id="easeInOutElasticDiv">
+		</div>	
+
+		<script type="text/javascript">  
+		$("#easeInOutElasticButton").click(function(){
+		  $("#easeInOutElasticDiv").animate({"left": col3Pos}, 0, "" );
+		  $("#easeInOutElasticDiv").animate({"left": easeAmt}, easeTime, "easeInOutElastic");
+		});
+		</script>
+		<br /><br /><br />
+	</td>		
+	</tr>
+	
+	<tr>
+	<td> EaseInBounce
+
+		<br />
+		<button id="easeInBounceButton">&raquo;</button>
+		<div class="col1" id="easeInBounceDiv">
+		</div>	
+
+		<script type="text/javascript">  
+		$("#easeInBounceButton").click(function(){
+		  $("#easeInBounceDiv").animate({"left": col1Pos}, 0, "" );
+		  $("#easeInBounceDiv").animate({"left": easeAmt}, easeTime, "easeInBounce");
+		});
+		</script>
+		<br /><br /><br />
+	</td>
+	<td> EaseOutBounce
+
+		<br />
+		<button id="easeOutBounceButton">&raquo;</button>
+		<div class="col2" id="easeOutBounceDiv">
+		</div>	
+
+		<script type="text/javascript">  
+		$("#easeOutBounceButton").click(function(){
+		  $("#easeOutBounceDiv").animate({"left": col2Pos}, 0, "" );
+		  $("#easeOutBounceDiv").animate({"left": easeAmt}, easeTime, "easeOutBounce");
+		});
+		</script>
+		<br /><br /><br />
+	</td>
+	<td> EaseInOutBounce
+
+		<br />
+		<button id="easeInOutBounceButton">&raquo;</button>
+		<div class="col3" id="easeInOutBounceDiv">
+		</div>	
+
+		<script type="text/javascript">  
+		$("#easeInOutBounceButton").click(function(){
+		  $("#easeInOutBounceDiv").animate({"left": col3Pos}, 0, "" );
+		  $("#easeInOutBounceDiv").animate({"left": easeAmt}, easeTime, "easeInOutBounce");
+		});
+		</script>
+		<br /><br /><br />
+	</td>		
+	</tr>
+
+</table>
 \endhtmlonly
 
 <br />
